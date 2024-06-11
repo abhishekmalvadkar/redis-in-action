@@ -22,6 +22,5 @@ jobs:
 
       - name: Connect to redis cli
         run: | 
-          docker exec -it rds bash
-          redis-cli
+          docker exec rds redis-cli
           ping
