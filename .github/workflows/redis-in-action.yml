@@ -10,10 +10,20 @@ jobs:
     steps:
       - name: Install redis
         run: sudo apt-get install -y redis-tools redis-server
+        
       - name: Connect to redis cli
-        run: |
-          redis-cli  ping
-      - name: String as key type
+        run: redis-cli  ping
+        
+      - name: Set and get String as key type
         run: |
           redis-cli set name "abhi"
           redis-cli get name
+
+      - name: Set and get hash as key type
+        run: |
+          redis-cli hset student id 1 name "abhi"
+          redis-cli hgetall student
+          redis-cli hget student id
+          redis-cli hget student name
+          
+          
