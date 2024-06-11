@@ -17,5 +17,5 @@ jobs:
       - name: Start Redis Container
         run: |
           docker ps -a
-          docker run -d --name rds -p 6379:6379 redis
+          docker run -d --name rds -p 6379:6379 redis:7.0.15-alpine
           docker ps -a
