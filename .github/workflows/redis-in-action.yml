@@ -10,5 +10,11 @@ jobs:
     steps:
       - name: Install redis
         run: sudo apt-get install -y redis-tools redis-server
-      - name: Verify that redis is up
-        run: redis-cli ping
+      - name: Connect to redis cli
+        run: |
+          redis-cli 
+          ping
+      - name: String as key type
+        run: |
+          set name "abhi"
+          get name
