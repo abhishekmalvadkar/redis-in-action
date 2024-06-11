@@ -8,19 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download redis image
-        run: |
-           docker images
-           docker pull redis:7.0.15-alpine
-           docker images
-
-      - name: Start Redis Container
-        run: |
-          docker ps -a
-          docker run -d --name rds -p 6379:6379 redis:7.0.15-alpine
-          docker ps -a
-
-      - name: Connect to redis cli
-        run: | 
-          docker exec rds redis-cli
-          ping
+      - name: Install redis
+        run: sudo apt-get install -y redis-tools redis-server
+      - name: Verify that redis is up
+        run: redis-cli ping
