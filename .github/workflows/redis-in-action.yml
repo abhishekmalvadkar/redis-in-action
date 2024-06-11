@@ -19,3 +19,8 @@ jobs:
           docker ps -a
           docker run -d --name rds -p 6379:6379 redis:7.0.15-alpine
           docker ps -a
+
+      - name: Connect to redis cli
+        run: | 
+          docker exec -it rds redis-cli
+          ping
